@@ -21,6 +21,14 @@ Works well with docker-desktop for macbook
 da5id%  docker-compose up -d
 ```
 
+# Before you get started
+Verify you have set the da5id directory to 766. If you do not verify this, when you backup your database it will not work.
+it will never tell you either. When you dump the database make sure you have a 'da5id_data.txt' file in the da5id folder.
+If you wipe your database without a valid 'da5id_data.txt' file saved in the da5id directory, you will be back to square zero.
+
+You have been warned. :-)
+
+
 # Open browser
 Use: localhost:5001
 
