@@ -144,26 +144,30 @@ def list_deals():
     # Get a list of Deals
     my_deals = []
     total = 0
+    dev_total = 0
     deal = db.deals.find({})
     deals = loads(dumps(deal))
     for d in deals:
         number = d['number']
+        status = d['status']
+        price = d['price']
+        deal_size = int(price)
+        if status == 'dev':
+            dev_total = dev_total + deal_size
+        if status != 'dev':
+            total = total + deal_size
         company = d['company']
         partner = d['partner']
         customer = d['customer']
         ope = d['ope']
         accountmgr = d['accountmgr']
         quarter = d['quarter']
-        price = d['price']
-        deal_size = int(price)
-        total = total + deal_size
-        status = d['status']
         deal = d['deal']
         thoughts = d['thoughts']
         notes = d['notes']
         info = [number, quarter, accountmgr, company, customer, partner, ope, deal, price, status, thoughts, notes]
         my_deals.append(info)
-    return render_template('list_deals.html', my_deals=my_deals, total=total)
+    return render_template('list_deals.html', my_deals=my_deals, total=total, dev_total=dev_total)
 
 @app.route("/edit_deal", methods=('GET', 'POST'))
 def edit_deal():
