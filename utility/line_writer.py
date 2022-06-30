@@ -79,6 +79,8 @@ def process_line(db,dbname,line):
             "company": line['company'],
             "customer": line['customer'],
             "ope": line['ope'],
+            "quarter": line['quarter'],
+            "accountmgr": line['accountmgr'],
             "price": line['price'],
             "status": line['status'],
             "thoughts": line['thoughts'],

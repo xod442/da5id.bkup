@@ -57,7 +57,7 @@ def prep_deals(db):
     f.write(header)
     f.write(cr)
     # Get deals
-    get_deals = db.deals.find({},{"_id":0,"deal":1,"company":1,"status":1,"thoughts":1,"partner":1,"notes":1,"customer":1,"ope":1,"price":1,"quarter":1},"accountmgr":1)
+    get_deals = db.deals.find({},{"_id":0,"deal":1,"company":1,"status":1,"thoughts":1,"partner":1,"notes":1,"customer":1,"ope":1,"price":1,"quarter":1},"accountmgr":1})
     json_deals = loads(dumps(get_deals))
     for item in json_deals:
         item = str(item)
